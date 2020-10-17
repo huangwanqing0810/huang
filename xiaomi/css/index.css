@@ -1,0 +1,603 @@
+#header{
+    height: 40px;
+    background: #333 ; 
+}
+.nav{
+    background: red;
+}
+.nav-list{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.nav-list a{
+    color:#b0b0b0;
+    padding: 0 8px;
+    border-left:1px solid #424242;
+}
+.nav-list a:hover{
+    color: #fff;
+}
+.nav-list-first a{
+    padding-left: 0;
+    border: none;
+}
+.login{
+    float: right;
+}
+.cart{
+    float: left;
+    width: 120px;
+    position: relative;
+    left:0;
+    top:0;
+    /* 鼠标手状 */
+    cursor: pointer;
+}
+.cart-num{
+    height: 40px;
+    line-height: 40px; 
+    /* 以上两步文本 购物车垂直居中 */
+    color:#b0b0b0;
+    background: #424242;
+    /* 下面这个水平居中 */
+    text-align: center;
+}
+.cart-list{
+    width: 320px;
+    height: 100px;
+    /* 打开网页后发现下面的框溢出了 有水平的滑动条 所以要定位 */
+    position: absolute;
+    right: 0;
+    top:40px;
+    z-index:5;
+    background:white;
+    text-align: center;
+    line-height: 100px;
+    /* display: none; */
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s ease;
+    /* css3边框阴影  水平偏移  垂直偏移 模糊度 外延值  颜色*/
+    box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.2);
+
+}
+/* .carthover的时候  子元素cart-list  */
+.cart:hover .cart-list{
+    /* display: block; */
+    height: 100px;
+}
+ /* .icon-gouwuche{
+    color: #b0b0b0;
+    font-size: 28px;
+}  */
+.cart:hover .cart-num{
+    color: #ff6700;
+    background: #fff;
+}
+
+
+
+/* *menu开始 */
+.menu{
+    height: 100px;
+    
+}
+/* logo图标整体 */
+.logo-box{
+
+    float: left;
+    background: #ff6701;
+    margin-top:22px;
+    width: 55px;
+    height:55px;
+    text-align: center;
+}
+/* 菜单整体 */
+.menu-box{
+    float: left;
+    margin-left:175px;
+}
+
+/* 菜单单行 */
+.menu-list{
+    float: left;
+    line-height: 100px;
+    
+}
+.menu-list a{
+    padding: 0 11px;
+    color: #333;
+    font-size: 16px;
+}
+.menu-list a:hover{
+    color: #ff6701;
+}
+/* 搜寻整体 */
+.search-box{
+    float: right;
+    width: 296px;
+    height: 50px;
+    margin-top: 22px;
+    border: 1px solid #e0e0e0;
+}
+.search-box input{
+    height: 50px;
+    width: 242px;
+    outline: none;
+    border: none;
+    text-indent: 10px;
+    float: left;
+}
+.search-box button{
+    height: 50px;
+    width:54px;
+    background: palevioletred;
+    float: left;
+    border-left:1px solid #e0e0e0;
+    border: none;
+}
+
+
+/* 轮播图 */
+.swiper .swiper-content{
+    position: relative;
+}
+.swiper .swiper-nav,.swiper .swiper-img{
+    height: 460px;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.swiper .swiper-nav{
+    
+    width: 234px;
+    z-index: 1;
+    background-color:  rgba(105,101,101,.6);
+}
+.swiper .swiper-img{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.swiper .swiper-img img{
+    width: 100%;
+    display: block;
+}
+.swiper .swiper-nav ul{
+    padding: 20px 0;
+}
+.swiper .swiper-nav li{
+    padding: 0 30px;
+    color:#fff;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+
+}
+.swiper .swiper-nav i{
+    float: right;
+}
+.swiper .swiper-nav li:hover{
+    background-color: #ff6700;
+    cursor: pointer;
+    
+}
+.swiper .arr-left{
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    color: #fff;
+    left: 234px;
+    top: 50%;
+    margin-top:-35px;
+}
+.swiper .arr-left .iconfont{
+    font-size: 44px;
+    color:#616161;
+}
+.swiper .arr-left:hover{
+    background-color: rgba(0,0,0,.3);
+
+}
+.swiper .arr-left:hover .iconfont{
+    color: #fff;
+}
+
+
+
+
+
+
+/*  */
+.hero-sub{
+    margin-top: 14px;
+    margin-bottom: 26px;
+
+}
+.hero-sub .hs-left{
+    width: 234px;
+    height: 170px;
+    background-color:#5f5750;
+    float: left;
+
+}
+.hero-sub .hs-right{
+    width: 978px;
+    height: 170px;
+    float: left;
+    margin-left: 14px;
+
+}
+.hero-sub .hs-left ul{
+    padding: 3px;
+}
+.hero-sub .hs-left li{
+    float: left;
+    width: 75px;
+    height: 82px;
+    color: #fff;
+    font-size: 12px;
+    /*  上 左右 下 */
+    padding: 18px 3px 0;
+    text-align: center;
+    /* 他在当前高度82的基础上padding后 又加上了18 所以改成怪异盒模型 */
+    box-sizing: border-box;
+    /* 为了给下面的伪元素进行定位 */
+    position: relative;
+}
+/* 伪元素 */
+.hero-sub .hs-left li::after{
+    position: absolute;
+    top: 6px;
+    left: 0;
+    content: "";
+    display: block;
+    width: 1px;
+    height: 70px;
+    background-color: #665e57;
+}
+.hero-sub .hs-left li::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 1px;
+    top: -1px;
+    left: 6px;
+    background-color: #665e57;
+}
+.hero-sub .hs-left img{
+    /* 为了让文字在图片的下方显示  把图片改为块元素 */
+    display: block;
+    width: 24px;
+    height: 24px;
+    /* 上 左右 下 */
+    margin: 0 auto 4px;
+
+}
+.hero-sub .hs-right{
+    width: 978px;
+    height: 170px;
+    float: left;
+    margin-left: 14px;
+}
+.hero-sub .hs-right li{
+    float: left;
+    margin-left: 15px;
+}
+.hero-sub .hs-right li:first-child{
+    margin-left: 0;
+
+}
+.hero-sub .hs-right img{
+    display: block;
+    width: 316px;
+    height: 170px;
+}
+
+/* ...........................商品展示区域 ............................/
+
+/*  头部  */
+.page-main{
+    /* 在下一个函数中发现底下背景又跟着动 用神奇的overflow hidden 解决 */
+    overflow: hidden;
+    height: 1000px;
+    background-color: #f5f5f5;
+}
+.page-main .pm-top{
+    width: 1226px;
+    height: 120px;
+    background-image: url(../image/img3.jpeg);
+    background-size: contain;
+    margin: 22px auto;
+}
+.page-main .pm-center{
+    height: 58px;
+    line-height: 58px;
+}
+.page-main .pm-bottom{
+    height: 628px;
+}
+.page-main .pm-center h3{
+    float: left;
+    font-size: 22px;
+    font-weight: 200;
+    color: #333;
+   
+}
+.page-main .pm-center .more-btn{
+    float: right;
+    font-size: 16px;
+    color:#424242
+}
+.page-main .more-btn div{
+    width: 12px;
+    height: 12px;
+    padding: 4px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #b0b0b0;
+    line-height: 12px;
+}
+.page-main .more-btn .iconfont{
+    color: #fff;
+}
+.page-main .more-btn:hover {
+    color: #ff6700;
+
+}
+.page-main .more-btn:hover div{
+    background-color: #ff6700;
+}
+
+/*  中间部分  */
+.page-main .pm-bottom .pmb-left{
+    width: 234px;
+    height: 614px;
+    float: left;
+    background-image: url(../image/img4.jpg);
+    background-size: contain;
+    
+}
+.page-main .pm-bottom .pmb-right{
+    height: 628px;
+    width: 992px;
+    float: left;
+}
+.page-main .pm-bottom .goods-item{
+    height: 260px;
+    float: left;
+    width: 234px;
+    background-color:#fff;
+    /* padding每个图片上下之间多20px距离 */
+    padding: 20px 0;
+    margin-bottom: 14px;
+    margin-left: 14px;
+    text-align: center;
+    
+}
+.page-main .goods-item h3{
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    margin: 0 10px 2px ;
+
+}
+.page-main .goods-item .gi-img{
+    margin: 0 auto 18px;
+    width: 160px;
+    height: 160px;
+}
+
+
+.page-main .goods-item img{
+    width: 160px;
+    height: 160px;
+
+}
+.page-main .goods-item .gi-info{
+    margin: 0 10px 10px;
+    font-size: 12px;
+    color: #b0b0b0;
+    height: 18px;
+}
+.page-main  .gi-price span{
+    color: #ff6700;
+    font-size: 14px;
+
+}
+.page-main  .gi-price del{
+    color: #b0b0b0;
+    font-size: 14px;
+}
+/* 动画效果 */
+.page-main .pmb-right li{
+    transition: all 0.3s ease;
+    margin-top: 0;
+    
+}
+.page-main .pmb-right li:hover{
+    position: relative;
+    top: -2px;
+    /* margin-top: -2px; 当用这句时，发现当鼠标滑入第一行最后一个图标时，第二行第一个元素串上来了，所以要换一种方法 */
+    /* 加阴影 横轴偏移量 纵轴偏移量 扩散值 颜色 */
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+
+
+
+
+/* ...........................右侧快捷导航............................*/
+.tool-bar{
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    /* 中轴线 靠1226的右侧 1226/2=613*/
+    margin-left: 613px;
+    width: 27px;
+    height: 261px;
+    background-color:white;
+    text-align: center;
+
+}
+.tool-bar i{
+    color: #665e57;
+}
+.tool-bar i:hover{
+    color: #ff6700;
+}
+
+/* ...........................闪购区域 ............................*/
+.plain-box .pb-top{
+    height: 58px;
+    line-height: 58px;
+}
+.plain-box .pb-top h3{
+    float: left;
+    font-size: 22px;
+    font-weight: 200;
+    color: #333;
+}
+.plain-box .pb-top .right-btn{
+    margin-top:16px;
+    float: right;
+    width: 70px;
+    height: 25px;
+    border:1px solid #e0e0e0;
+}
+.plain-box .right-btn div{
+    float: left;
+    width: 49%;
+    line-height: 25px;
+    text-align: center;
+}
+.plain-box .right-btn div:first-child{
+    border-right: 1px solid #e0e0e0
+}
+.plain-box .right-btn .iconfont{
+    color: #b0b0b0;
+    font-weight: bolder;
+}
+.plain-box .right-btn .iconfont:hover{
+    color: #ff6700;
+}
+.plain-box .pb-bottom{
+    height: 340px;
+}
+.plain-box .pb-bottom .goods-item{
+    width: 978px;
+    height: 340px;
+    margin-left: 14px;
+    float: left;
+}
+.plain-box .pb-bottom .flashsale-countdown{
+    width: 234px;
+    height: 340px;
+    background-color: #f1eded;
+    float: left;
+    border-top:1px solid #e53935;
+    padding-top: 39px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.plain-box .flashsale-countdown .timber{
+    font-size: 21px;
+    color: #ef3a3b;
+    padding-top: 15px;
+}
+.plain-box .flashsale-countdown img{
+    margin: 25px auto;
+}
+.plain-box .flashsale-countdown .desc{
+    color: rgba(0,0,0,.54);
+    font-size: 15px;
+}
+.plain-box .flashsale-countdown .countdown{
+    width: 168px;
+    margin: 28px auto 0;
+}
+.plain-box .countdown span{
+    width: 46px;
+    height: 46px;
+    background-color: #605751;
+    color: #fff;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 46px;
+}
+.plain-box .countdown i{
+    font-style: normal;
+    display: inline-block;
+    width: 7px;
+    height: 46px;
+    font-size: 28px;
+    line-height: 46px
+}
+.plain-box .goods-item li{
+    float: left;
+    width: 234px;
+    height: 339px;
+    padding-top: 39px;
+    background-color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    margin-left: 14px;
+    position: relative;
+}
+.plain-box .goods-item .gi-img{
+    width: 160px;
+    height: 160px;
+    margin:0 auto 22px
+}
+.plain-box .goods-item img{
+    width: 160px;
+    height: 160px;
+}
+.plain-box .goods-item h3{
+    white-space: nowrap;
+    margin: 0 20px 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #212121;
+    font-size: 14px;
+    font-weight: 400;
+}
+.plain-box .goods-item .desc{
+    color: #b0b0b0;
+    font-size: 12px;
+    height: 18px;
+    margin: 0 20px 12px;
+}
+.plain-box .goods-item .price{
+    font-size: 14px;
+    color: #ff6700;
+}
+.plain-box .price del{
+    color: #b0b0b0;
+} 
+.plain-box .goods-item li:first-child{
+    border-top:1px solid #2196f3;
+    margin-left: 0;
+}
+.plain-box .goods-item li:nth-child(2){
+    border-top:1px solid #e53935;
+}
+.plain-box .goods-item li:nth-child(3){
+    border-top:1px solid #00c0a5;
+}
+.plain-box .goods-item li:nth-child(4){
+    border-top:1px solid #ffac13;
+}
+.plain-box .goods-item li::after{
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.02);
+}
+
+
+

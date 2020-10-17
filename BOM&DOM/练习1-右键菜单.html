@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 200px;
+            background-color: olivedrab;
+            position: fixed;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    
+    <script>
+        var oBox = document.getElementsByClassName("box")[0];
+        var rootEl = document.documentElement;
+
+        rootEl.oncontextmenu = function(event){
+            var x = event.clientX;
+            var y = event.clientY;
+            oBox.style.display = "block";
+            oBox.style.left = x +"px";
+            oBox.style.top = y + "px";
+            event.preventDefault();
+        }
+
+    </script>
+</body>
+</html>

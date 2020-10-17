@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- for 与span不同 点用户名时他也获取焦点 
+        SLOT 相当于插件 
+     用emit通知父组件 调用父组件的show自定义函数 在父组件的vue的show中实现 让窗口消失
+    父到子 prop
+    子到父 emit-->
+
+
+
+
+    <div id="app">
+        <button>show</button>
+        <my-dialog title="登录">
+        <div slot="slot1">
+            <div>
+                <label for="name">用户名</label>
+                <input id="name" type="text">
+            </div>
+            <div>
+                <label for="password">密码</label>
+                <input id="password" type="text">
+            </div>
+        </div>
+        <div slot="slot2">
+            <p>我是底部</p>
+        </div>
+        <my-dialog>
+    </div>
+
+    <template>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            },
+        })
+    </script>
+</body>
+</html>

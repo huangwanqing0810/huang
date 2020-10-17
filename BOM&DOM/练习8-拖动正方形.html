@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var oBox = document.getElementsByClassName("box")[0];
+
+        oBox.onmousedown = function(event){
+            //获取当前元素的位置 就是出了正方形的距离
+            // console.log(oBox.offsetTop,oBox.offsetLeft)
+            var oBoxTop = oBox.offsetTop;
+            var oBoxLeft = oBox.offsetLeft;
+            var pointTop = event.clientY;
+            var pointLeft = event.clientX;
+            var _thisTop = pointTop - oBoxTop;
+            var _thisLeft = pointLeft - oBoxLeft;
+            
+            //给整个文档绑定事件 为了防止移动的太快以后 正方形跟不上
+            document.onmousemove = function(event){
+                // console.log(event.clientY,event.clientX);
+                //要顶点往上移往左移 所以用client去减
+                oBox.style.top = event.clientY - _thisTop + "px";
+                oBox.style.left =event.clientX - _thisLeft+ "px";
+
+                
+            }
+
+        }
+        oBox.onmouseup = function(){
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+</html>

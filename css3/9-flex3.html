@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    ul{
+      display: flex;
+      height: 400px;
+      /* flex-direction: column; */
+    }
+    ul li{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 5px;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-size: 30px;
+      /* flex-grow: 1; */
+    }
+    ul li:nth-child(3){
+      /* flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+      如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍 */
+      flex-grow: 2;
+
+      /* order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。 */
+      order: -1;
+      /* flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+      如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。 */
+      flex-shrink: 0;
+      /* flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size） */
+      flex-basis: 200px;
+
+      /* align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。
+      默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+      auto | flex-start | flex-end | center | baseline | stretch; */
+      align-self: flex-end;
+    }
+    ul li:nth-child(4){
+      /* flex-grow: 2; */
+      order: -2;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <!-- <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li> -->
+  </ul>
+</body>
+</html>

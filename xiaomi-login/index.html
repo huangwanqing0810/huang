@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        .header .h-logo {
+            width: 200px;
+            height: 98px;
+            background-image: url(image/mistore_logo.png);
+        }
+
+        .content {
+            height: 590px;
+            width: 100%;
+            background-image: url(image/bg.jpg);
+            /* background-color: palegoldenrod; */
+            background-position: top center;
+            overflow: hidden;
+
+        }
+
+        .content .main-content {
+            height: 590px;
+            /* background-color: orange; */
+            margin-top: 30px;
+        }
+
+        .content .login-box {
+            width: 410px;
+            height: 566px;
+            background-color: peru;
+            margin-left: auto;
+            margin-right: 0px;
+            
+            /* 发现写完这句后margin-top:20px;  所有的整体的模块都跟着向上挪动 内部带着外部一起动了 
+              
+            解决方法：给其父类添加overflow:hidden(溢出隐藏)
+            
+            */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 开头 -->
+        <div class="header wrapper">
+            <div class="h-logo"></div>
+        </div>
+        <!-- 中间 -->
+        <div class="content">
+            <div class="main-content wrapper">
+                <div class="login-box">
+                    <!-- 又把登录分为了四个div -->
+                    <div class="nav-tabs">
+                        <a href="javascropt:void(0);">账号登录</a>
+                        <span></span>
+                        <a href="javascropt:void(0);">账号注册</a>
+                    </div>
+                    <div class="form-content"></div>
+                    <div class="logo-info"></div>
+                    <div class="other-login"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- 结尾 -->
+        <div></div>
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>

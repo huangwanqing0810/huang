@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color:palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="active">小葵小葵</h1>
+    <script>
+        // // 加号（+）除了可以实现数学运算 还可以实现字符串拼接
+        // var a=10;
+        // var b="a";
+        // console.log(typeof(a+b));//隐式类型转换 String
+
+
+        //下面这些都可以算出来
+        // var a=10;
+        // var b="20";
+        // console.log(b-a);//隐式类型转换 Number
+        // console.log(b*a);
+        // console.log(b/a);
+
+
+        //输出NaN
+        // var a=10;
+        // var b="hello";
+        // console.log(a*b)
+        // var a="hello";
+        // console.log("?"+"!");
+        // document.write("<h1>"+a+"</h1>")//成功
+        // document.write("<h1 class='active'>hello</h1>")//成功 带有active样式的hello
+        // document.write('<h1 class="active">hello</h1>')//要注意单引号和双引号的配对
+        // // document.write('<h1 class="active">'+str+'</h1>')//报错  所以该咋办
+
+         
+        // var a=0.1;
+        // var b=0.2;
+        // console.log(a+b)//0.30000000000000004
+
+
+        // var a = 10;
+        // a = a + 1; a += 1;
+
+        // ++a ;a++; a = a + 1;
+
+        var a = 10;
+        // var b = ++a;
+        // console.log(b);//这个输出11
+        var b = a++;
+        console.log(b);//这个输出10
+       
+    </script>
+    
+</body>
+</html>

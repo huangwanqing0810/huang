@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--transition： 哪个属性发生过度 完成的时间 ease 等的时间 -->
+    <div id="app">
+        <button @click="change">click</button>
+        <transition name="fade">
+            <h2 v-if="isShow">哈哈哈</h2>
+        </transition>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+
+        new Vue({
+            el:"#app",
+            
+        })
+    </script>
+</body>
+</html>
