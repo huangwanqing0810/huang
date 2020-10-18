@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <!-- 哈哈
+    <h2>dfghjk ggl; hehe</h2>
+    <test></test> -->
+    <router-view></router-view>
+
+    <router-link to="/home">首页 </router-link>
+    <router-link to="/test">测试页面</router-link>
   </div>
 </template>
+<script>
+// 在父组件中引入子组件
+// 1 引入组件 import  2 components声明 3使用
+// import Test from "./views/Test";
+export default {
+  // components: {
+  //   Test
+  // }
+};
+</script>
 
 <style lang="scss">
 #app {
