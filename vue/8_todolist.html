@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!--先写出页面最基本的样子 
+        再添加Vue
+        然后添加每个按钮的功能 
+
+
+     -->
 
 <head>
     <meta charset="UTF-8">
@@ -57,6 +63,7 @@
             <input type="checkbox" v-model="obj.isRed">
             <span>{{obj.name}}</span>
             <span>{{obj.price}}</span>
+            <!-- stop阻止事件冒泡 -->
             <span class="right" @click.stop="del(index)">[x]</span>
             </li>
         </ul>
@@ -105,7 +112,7 @@
                     obj.isRed = !obj.isRed;
                 },
                 del(index) {
-                    // splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+                    // splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。   第三个参数是替换的东西 是空的
                     this.list.splice(index, 1)
                 },
                 // 删除选中
