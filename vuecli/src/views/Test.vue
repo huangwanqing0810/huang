@@ -1,8 +1,11 @@
 <template>
   <div class="container">
     <p>wawayaya</p>
-    <h2>haha</h2>
+    <h2>haha</h2> 
+    <router-link to="/vuex">vuex</router-link>
+    <router-view> </router-view>
   </div>
+ 
 </template>
 
 <script>

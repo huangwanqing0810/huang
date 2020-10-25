@@ -4,7 +4,7 @@ import Home from './../views/Home'
 import Test from './../views/Test'
 import A from './../views/A'
 import B from './../views/B'
-
+import Ivuex from '@/views/Vuex'
 
 Vue.use(VueRouter)
 
@@ -16,6 +16,7 @@ const routes = [
   },
   {
     // 点击时网址后那个东西
+    // 当地址path变成/home时 显示home组件
     path: '/home',
     name:'myHome',
     component: Home,
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/test',
     component: Test
+  },
+  {
+    path: '/vuex',
+    component: Ivuex
   }
 ]
 
