@@ -1,6 +1,6 @@
 <template>
-    <div>
-我是首页的头
+    <div class="container">
+        <input type="text" placeholder="请输入商品">
     </div>
 </template>
 
@@ -11,5 +11,19 @@
 </script>
 
 <style lang="scss" scoped>
+.container{
+    background-color:#1c1b20 ;
+    text-align: center;
+    padding:0.2rem 0;
+    input{
+        width:90%;
+        height: 0.6rem;
+        outline: none;
+        border:none;
+        border-radius: 0.3rem;
+        text-align: center;
+    }
+    
+}
 
 </style>
