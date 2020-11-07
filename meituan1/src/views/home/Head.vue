@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <input type="text" placeholder="请输入商品">
+        <input type="text" placeholder="请输入商品名称">
     </div>
 </template>
 
@@ -21,7 +21,7 @@
         outline: none;
         border:none;
         border-radius: 0.3rem;
-        text-align: center;
+        text-indent: 20px;
     }
     
 }

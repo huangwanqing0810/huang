@@ -1,14 +1,22 @@
 <template>
     <div>
-我是详情页
+        <detail-head></detail-head>
+        <comment></comment>
     </div>
 </template>
 
 <script>
+    import DetailHead from './DetailHead'
+    import Comment from '@/views/comment/index'
     export default {
+        components:{
+            DetailHead,
+            Comment
+        }
         
     }
 </script>
+    
 
 <style lang="scss" scoped>
 
