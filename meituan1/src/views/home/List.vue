@@ -7,6 +7,7 @@
                 <div class="store-info">
                     <h2>{{obj.name}}</h2>
                     <div>{{obj.num}}</div>
+                    <Star :num="obj.score"></Star>
                     <div>配送时间{{obj.minute}}</div>
                 </div>
 
@@ -17,11 +18,15 @@
 
 <script>
     import axios from "axios"
+    import Star from '@/components/Star'
     export default {
         data(){
             return{
                 list:[]
             }
+        },
+        components:{
+            Star
         },
         created(){
             axios.get("http://admin.gxxmglzx.com/tender/test/get_store?current=1&size=10")
