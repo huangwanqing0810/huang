@@ -5,11 +5,11 @@
             
         </div>
         <ul class="list-box">
-            <li class="list">
-                <img class="list-img" src="obj.portrait" alt="">
+            <li class="list" v-for="obj in list.rate" :key="obj.id">
+                <img class="list-img" :src="obj.portrait" alt="">
                 <div class="list-info">
-                  <div class="name">薇薇2v</div>
-                  <div class="desc">包装很完美诶，虽然送的晚了一点，但是没有凉，串都很好吃，活动力度大，以后点外卖肯定首选你家哦～～～好吃！</div>
+                  <div class="name">{{obj.name}}</div>
+                  <div class="desc">{{obj.content}}</div>
                 </div>
             </li>
         </ul>
@@ -20,6 +20,28 @@
     export default {
         
     }
+</script>
+
+<script>
+export default {
+    props:["list"],
+    data(){
+      return {
+        typeId:1 //记录当前的typeId
+      }
+    },
+    created(){
+        console.log(this.list)
+    },
+    methods:{
+        change(id){
+            // 获取当前点击的id 传到父组件
+            this.$emit('xx',id)
+            // 修改typeId是当前的类型 
+            this.typeId = id;
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -34,15 +56,23 @@
       border: 1px solid #bbb;
       border-radius: 0.28rem;
       margin-right: 0.2rem;
+      display: inline-block;
+      margin-bottom: 0.1rem;
+      &.active{
+        background: #fffbf1;
+        border:1px solid #ffb000;
+      }
     }
   }
   .list-box {
     .list {
         display: flex;
+        margin-bottom: 0.2rem;
       .list-img {
         width: 0.8rem;
         height: 0.8rem;
         border-radius: 50%;
+        margin-right: 0.2rem;
       }
     }
   }

@@ -14,7 +14,14 @@
 </template>
 
 <script>
+import axios from 'axios'
     export default {
+// created(){
+//     axios.get(`http://admin.gxxmglzx.com/tender/test/get_store_id`)
+//     .then((res)=>{
+
+//     })
+// }
         
     }
 </script>
