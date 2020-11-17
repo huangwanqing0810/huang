@@ -4,7 +4,14 @@
     <!-- 外层父元素 高度固定 -->
     <div class="cate-box">
       <ul>
-        <li :class="{active: index == currentIndex,'cate-list':true}" v-for="(obj,index) in nav" @click="change(index)" :key="obj.id">{{obj.name}}</li>
+        <li
+          :class="{ active: index == currentIndex, 'cate-list': true }"
+          v-for="(obj, index) in nav"
+          @click="change(index)"
+          :key="obj.id"
+        >
+          {{ obj.name }}
+        </li>
       </ul>
     </div>
 
@@ -12,12 +19,20 @@
     <!--  -->
     <div class="pro-box">
       <div>
-        <div class="prod-cate-box" v-for="(obj,index) in goods" :key="index">
-          <h2>{{obj.name}}</h2>
+        <div class="prod-cate-box" v-for="(obj, index) in goods" :key="index">
+          <h2>{{ obj.name }}</h2>
           <ul>
             <li class="prod-list" v-for="prod in obj.content" :key="prod.id">
               <img class="prod-img" :src="prod.img" alt />
-              <p>{{prod.name}}</p>
+              <div>
+                <p>{{ prod.name }}</p>
+                <p>{{ prod.price }}</p>
+              </div>
+              <div class="add-cart">
+                <span class="iconfont icon-xianxingtubiaozhizuomoban-02"></span>
+                <span class="num">0</span>
+                <span class="iconfont icon-jiahao"></span>
+              </div>
             </li>
           </ul>
         </div>
@@ -33,33 +48,34 @@ export default {
     return {
       nav: [],
       goods: [],
-      currentIndex:0,
-      scrollY:0,//prodScroll 滚动的高度
-      pos:[] //记录所有分类div的位置prod-cate-box
+      currentIndex: 0,
+      scrollY: 0, //prodScroll 滚动的高度
+      pos: [], //记录所有分类div的位置prod-cate-box
     };
   },
-  methods:{
-      change(index){
-           // 获取到跟index索引对应的 .prod-cate-box
-      let prodCateList = document.getElementsByClassName("prod-cate-box")
+  methods: {
+    // 当点击左侧分类时 右侧滚动
+    change(index) {
+      // 获取到跟index索引对应的 .prod-cate-box
+      let prodCateList = document.getElementsByClassName("prod-cate-box");
       console.log(prodCateList[index]);
-      // ele 元素
-      this.prodScroll.scrollToElement(prodCateList[index],300)
+      // ele 元素  为了有点动画效果 加上了300延迟
+      this.prodScroll.scrollToElement(prodCateList[index], 300);
       this.currentIndex = index;
-      },
-      getPos(){
-        let prodCateList = document.getElementsByClassName("prod-cate-box");
-        let H = 0;
-        for(let i=0;i<prodCateList.length;i++){
-          if(i == 0){
-            this.pos.push(0)
-          }else{
-            H += prodCateList[i-1].offsetHeight;
-            this.pos.push(H);
-          }
+    },
+    getPos() {
+      let prodCateList = document.getElementsByClassName("prod-cate-box");
+      let H = 0;
+      for (let i = 0; i < prodCateList.length; i++) {
+        if (i == 0) {
+          this.pos.push(0);
+        } else {
+          H += prodCateList[i - 1].offsetHeight;
+          this.pos.push(H);
         }
-        console.log(this.pos)
       }
+      console.log(this.pos);
+    },
   },
   created() {
     axios
@@ -72,40 +88,40 @@ export default {
         this.goods = res.data.data.goods;
 
         // 渲染到页面后 ->new BetterScroll
-        this.$nextTick(()=>{
-        this.cateScroll = new BetterScroll(".cate-box", {
+        this.$nextTick(() => {
+          this.cateScroll = new BetterScroll(".cate-box", {
             click: true,
-            bounce: false
-        });
-        this.prodScroll = new BetterScroll(".pro-box", {
-            click: true,
-            bounce: false, 
-            probeType:3
+            bounce: false,
           });
-        this.prodScroll.on("scroll",position=>{
-          this.scrollY=Math.abs(position.y);
-          console.log(this.scrollY)
-        });
-        // 计算每个分类的位置
-        this.getPos();
+          this.prodScroll = new BetterScroll(".pro-box", {
+            click: true,
+            bounce: false,
+            probeType: 3,
+          });
+          this.prodScroll.on("scroll", (position) => {
+            this.scrollY = Math.abs(position.y);
+            console.log(this.scrollY);
+          });
+          // 计算每个分类的位置
+          this.getPos();
         });
       });
   },
-  watch:{
-    
-    scrollY(val){
-      let cateList = document.querySelectorAll('.cate-list');
-      for(let index=0; index< this.pos.length;index++){
+  watch: {
+    scrollY(val) {
+      let cateList = document.querySelectorAll(".cate-list");
+      for (let index = 0; index < this.pos.length; index++) {
         let pos1 = this.pos[index];
-        let pos2 = this.pos[index+1];
-        if(val>=pos1 && val <pos2){
+        let pos2 = this.pos[index + 1];
+        if (val >= pos1 && val < pos2) {
           this.currentIndex = index;
-          
-          this.cateScroll.scrollToElement(cateList[index],300)
+
+          this.cateScroll.scrollToElement(cateList[index], 300)
+          break;
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -120,22 +136,41 @@ export default {
     li {
       padding: 0.18rem 0.24rem 0.44rem;
       background: #f5f5f5;
-        &.active{
-      color: red;
-    }
-  
+      &.active {
+        color: red;
+      }
     }
   }
   .pro-box {
     flex: 3;
     height: calc(100vh - 94px);
     .prod-list {
+      position: relative;
       display: flex;
       .prod-img {
         width: 1.5rem;
       }
       p {
         flex: 1;
+      }
+      .add-cart {
+        position: absolute;
+        right: 0.2rem;
+        bottom: 0;
+        .icon-xianxingtubiaozhizuomoban-02{
+          color: #e2e3e5;
+          vertical-align: middle;
+          font-size: 26px;
+        }
+        .icon-jiahao {
+          color: #ffc134;
+          vertical-align: middle;
+          font-size: 26px;
+        }
+        .num {
+          margin: 0 0.1rem;
+          vertical-align: middle;
+        }
       }
     }
   }
