@@ -19,19 +19,21 @@
     <!--  -->
     <div class="pro-box">
       <div>
-        <div class="prod-cate-box" v-for="(obj, index) in goods" :key="index">
+        <!-- 第一次循环goods取到八个对象 取到goods的name  -->
+        <!-- 在每次goods的循环里 再循环content 取到商品 -->
+        <div class="prod-cate-box" v-for="(obj, typeIndex) in goods" :key="typeIndex">
           <h2>{{ obj.name }}</h2>
           <ul>
-            <li class="prod-list" v-for="prod in obj.content" :key="prod.id">
+            <li class="prod-list" v-for="(prod,index) in obj.content" :key="prod.id">
               <img class="prod-img" :src="prod.img" alt />
               <div>
                 <p>{{ prod.name }}</p>
                 <p>{{ prod.price }}</p>
               </div>
               <div class="add-cart">
-                <span class="iconfont icon-xianxingtubiaozhizuomoban-02"></span>
-                <span class="num">0</span>
-                <span class="iconfont icon-jiahao"></span>
+                <span class="iconfont icon-xianxingtubiaozhizuomoban-02" v-if="prod.count >0"></span>
+                <span class="num">{{prod.count}}</span>
+                <span class="iconfont icon-jiahao" @click="$store.commit('add',{typeIndex,index})"></span>
               </div>
             </li>
           </ul>
@@ -86,15 +88,17 @@ export default {
         console.log(res.data.data);
         this.nav = res.data.data.nav;
         this.goods = res.data.data.goods;
+        // vuex中存储商品 调用vuex中mutation中的方法
+        this.$store.commit('save',this.goods);
 
         // 渲染到页面后 ->new BetterScroll
         this.$nextTick(() => {
           this.cateScroll = new BetterScroll(".cate-box", {
-            click: true,
+            click: false,
             bounce: false,
           });
           this.prodScroll = new BetterScroll(".pro-box", {
-            click: true,
+            click: false,
             bounce: false,
             probeType: 3,
           });
